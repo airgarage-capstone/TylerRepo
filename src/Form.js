@@ -1,58 +1,94 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import './Form.css'
 
 class Form extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {firstName: '',
+                    lastName:'',
+                    email:'',
+                    password:'',
+                    profile:'',
+                    dob:'',
+                    phoneNum:''
+    };
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
     }
   
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
+    handleInputChange(event) {
+      const target = event.target;
+      const value = target.value;
+      const name = target.name;
   
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
+      this.setState({
+        [name]: value
+      });
     }
   
     render() {
       return (
         <div className="Form">
-        <form onSubmit={this.handleSubmit}>
-        <label>
-          First Name:
-          <input type="text" firstName = "First Name" />
-        </label><br></br><br></br>
-        <label>
-          Last Name:
-          <input type="text" lastName = "Last Name" />
-        </label><br></br><br></br>
-        <label>
-          Email:
-          <input type="text" email = "" />
-        </label><br></br><br></br>
-        <label>
-          Password:
-          <input type="text" password = "" />
-        </label><br></br><br></br>
-        <label>
-          Profile:
-          <input type="text" profile = "" />
-        </label><br></br><br></br>
-        <label>
-          Date of Birth:
-          <input type="text" dob = "" />
-        </label><br></br><br></br>
-        <label>
-          Phone Number:
-          <input type="text" phoneNumber = "" />
-        </label><br></br><br></br>
-        <input type="submit" value="Submit" />
-      </form>
+            <form>
+            <label>
+              First Name<br/>
+              <input 
+                    name = "firstName" 
+                    type="text"
+                    value = {this.state.firstName} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Last Name<br/>
+              <input 
+                    name = "lastName" 
+                    type="text"
+                    value = {this.state.lastName} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Email<br/>
+              <input 
+                    name = "email" 
+                    type="text"
+                    value = {this.state.email} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Password<br/>
+              <input 
+                    name = "password" 
+                    type="password"
+                    value = {this.state.password} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Profile<br/>
+              <input 
+                    name = "profile" 
+                    type="text"
+                    value = {this.state.profile} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Date of Birth<br/>
+              <input 
+                    name = "dob" 
+                    type="date"
+                    value = {this.state.dob} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <label>
+              Phone Number<br/>
+              <input 
+                    name = "phoneNum" 
+                    type="text"
+                    value = {this.state.phoneNum} 
+                    onChange = {this.handleInputChange}/>
+            </label><br/><br/>
+            <input type="submit" value="Submit" />
+          </form>
       </div>
       );
     }
