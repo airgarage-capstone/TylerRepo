@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.Card {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 1px;
+    background-color: rgb(225, 225, 225);
+    box-shadow: 8px 8px 6px -6px black;
+    width: 75%;
+}
+
+h2
+{
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #fa824c;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+
+    padding-left: 10%;
+    padding-bottom: 5%;
+}
+
+.Form{
+    width:50%;
+    margin: auto;
+    border: 1px solid;
+    border-radius: 10px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+select {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+input[type=submit] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    background-color: White;
+}
+
+input[type=submit]:active {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid;
+    border-color: #fa824c;
+    color:  #fa824c;;
+}

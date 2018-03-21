@@ -22,3 +22,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.container
+{
+  width:100%;
+}
+
+.block
+{
+  display: inline-block;
+  width: 33%;
+}
