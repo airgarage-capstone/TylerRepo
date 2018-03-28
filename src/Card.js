@@ -9,6 +9,10 @@ class Card extends React.Component {
         super(props);
         this.state = {
             spotName: props.spotName,
+            address: props.address,
+            city: props.city,
+            state: props.state,
+            zip: props.zip,
             notes: props.notes,
             restrictions: props.restrictions,
             price: props.price,
@@ -20,27 +24,24 @@ class Card extends React.Component {
         };
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
-    }
 
     render() {
         return (
             <div className="Card">
                 <h2 id="Name">{this.props.spotName}</h2>
+                <div className="address">
+                    <p>
+                        {this.props.address}<br/>
+                        {this.props.city}, {this.props.state}<br/>
+                        {this.props.zip}
+                    </p>
+                </div>
                 <div className="Info">
                     <p>{this.props.quantity} spots available.<br />
                     ${this.props.price} per month<br />
                     24/7: {this.props.allDay.toString().toUpperCase()}
                     </p>
                 </div>
-
             </div>
         );
     }

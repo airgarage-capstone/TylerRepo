@@ -25,11 +25,11 @@
 
 .container
 {
-  width:75%;
+  width:100%;
 }
 
 .block
 {
   display: inline-block;
-  width: 33%;
+  width: 300px;
 }

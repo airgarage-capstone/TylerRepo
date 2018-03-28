@@ -4,14 +4,19 @@ import './App.css';
 import Form from './Form';
 import Login from './Login';
 import Card from './Card';
+import axios from 'axios'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { Value: '' };
+  
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state={info:[]}
+
+  componentDidMount(){
+    axios.get(`https://airgara.ge/api/spots/`)
+          .then(res => {
+            const info = res.data;
+            this.setState({ info });
+          })
   }
 
   handleChange(event) {
@@ -30,12 +35,17 @@ class App extends Component {
         <Login>
         </Login>
         <div className="container">
-          <div className="block"><Card spotName="Tyler's spot" price={50} quantity={2} allDay={true}/></div>
-          <div className="block"><Card spotName="Jim's spot" price={30} quantity={1} allDay={false}/></div>
-          <div className="block"><Card spotName="Bob's spot" price={30} quantity={3} allDay={true}/></div>
-          <div className="block"><Card spotName="Kat's spot" price={50} quantity={1} allDay={true}/></div>
-          <div className="block"><Card spotName="Kate's spot" price={30} quantity={2} allDay={false}/></div>
-          <div className="block"><Card spotName="Santa's spot" price={10} quantity={9} allDay={true}/></div>
+        <div>
+              {this.state.info.map(card => <Card 
+                spotName={card.name} 
+                address={card.address.address_line1} 
+                city={card.address.city} 
+                state={card.address.state}  
+                zip={card.address.zipcode} 
+                price={card.price} quantity={card.quantity} 
+                allDay={card.available_24_7}
+              />)}
+            </div>
         </div>
       </div>
     );
