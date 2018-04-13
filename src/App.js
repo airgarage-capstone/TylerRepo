@@ -35,7 +35,7 @@ class App extends Component {
         <Login>
         </Login>
         <div className="container">
-        <div>
+        /*<div>
               {this.state.info.map(card => <Card 
                 spotName={card.name} 
                 address={card.address.address_line1} 
@@ -45,7 +45,7 @@ class App extends Component {
                 price={card.price} quantity={card.quantity} 
                 allDay={card.available_24_7}
               />)}
-            </div>
+            </div>*/
         </div>
       </div>
     );

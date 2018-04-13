@@ -41,18 +41,28 @@ class Form extends React.Component {
           last_name: this.state.lastName,
           username: this.state.email,
           password: this.state.password,
-          profile: {
-                accountType: this.state.accountType,
-                dob: this.state.dob,
-                entityType: "",
-                phone: this.state.phoneNum
-          }
+          accountType: this.state.accountType,
+          dob: this.state.dob,
+          entityType: "",
+          phone: this.state.phoneNum
       };
 
-      axios.post(`https://staging.airgara.ge/api/register/`, { user })
+      axios.post(`http://staging.airgara.ge/api/register/`, user )
       .then(res => {
         console.log(res);
         console.log(res.data);
+      })
+      .catch(error =>
+      {
+        var response = "Error";
+        for(var key in error.res.data){
+          response += key;
+          response += ":";
+          response += error.res.data[key];
+          response += "\n";
+        }
+        alert(response);
+        console.log(error.res.data);
       })
     }
   
