@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './Form.css'
 
@@ -34,6 +35,25 @@ class Form extends React.Component {
     {
       alert("Hello, "+ this.state.firstName+" "+this.state.lastName);
       event.preventDefault();
+
+      const user = {
+          first_name: this.state.firstName,
+          last_name: this.state.lastName,
+          username: this.state.email,
+          password: this.state.password,
+          profile: {
+                accountType: this.state.accountType,
+                dob: this.state.dob,
+                entityType: "",
+                phone: this.state.phoneNum
+          }
+      };
+
+      axios.post(`https://staging.airgara.ge/api/register/`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
     }
   
     render() {
@@ -90,9 +110,9 @@ class Form extends React.Component {
                     onChange = {this.handleInputChange}/>
             </label><br/>
             <label>
-              <select value = {this.state.accountType} onChange={this.handleInputChange}>
-                      <option value="" disabled selected>How do you want to use Air Garage?</option>
-                      <option value="Find Parking">Find Parking</option>
+              <select name = "accountType" onChange={this.handleInputChange}>
+                      <option value="" selected disabled>How do you want to use Air Garage?</option>
+                      <option value="Find parking">Find Parking</option>
                       <option value="List a spot">List a spot</option>
                       <option value="Both">Both</option>
               </select>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './Form.css'
+import './Form.css';
+import axios from 'axios';
 
 class Login extends React.Component {
     constructor(props) {
@@ -26,8 +27,16 @@ class Login extends React.Component {
 
     handleSubmit(event)
     {
-      alert("Account not found.");
       event.preventDefault();
+      var user = {
+        username: this.state.email,
+        password: this.state.password
+      };
+      axios.post(`https://staging.airgara.ge/api/register/`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
     }
   
     render() {
