@@ -32,7 +32,7 @@ class Login extends React.Component {
         username: this.state.email,
         password: this.state.password
       };
-      axios.post(`https://staging.airgara.ge/api/register/`, { user })
+      axios.post(`http://staging.airgara.ge/api/auth/`,  user )
       .then(res => {
         console.log(res);
         console.log(res.data);
